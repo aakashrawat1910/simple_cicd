@@ -1,1 +1,32 @@
+name : simple_cicd
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    checkout-code:
+        runs-on: ubuntu-Latest
+
+        steps:
+            - name: Checkout code
+            uses: actions/checkout@v2
+
+jobs:
+    runcode:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Run code
+            uses: ssh-actions/ssh@v2
+            with:
+                ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                script: |
+                    cd /home/ubuntu/simple_cicd
+                    git pull
+                    docker-compose up -d
+           
 
