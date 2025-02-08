@@ -27,6 +27,9 @@ jobs:
               port: ${{ secrets.PORT }}
               source: "./"
               target: /home/ubuntu
+              script: | 
+                  sudo cp -r . /var/www/html
+              
 
         
 
