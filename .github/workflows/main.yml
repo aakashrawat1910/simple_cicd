@@ -35,7 +35,7 @@ jobs:
               username: ${{ secrets.USERNAME }}
               key: ${{ secrets.KEY }}
               port: ${{ secrets.PORT }}
-              script: | 
+              script: |
                   sudo cp -r . /var/www/html
               
 
