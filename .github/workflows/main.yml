@@ -29,6 +29,16 @@ jobs:
               target: /home/ubuntu
               script: | 
                   sudo cp -r . /var/www/html
+
+        - name: copy file via ssh password in aws
+          uses: appleboy/scp-action@v0.1.7
+          with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USERNAME }}
+              key: ${{ secrets.KEY }}
+              port: ${{ secrets.PORT }}
+              script: | 
+                  sudo cp -r . /var/www/html
               
 
         
