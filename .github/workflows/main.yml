@@ -17,6 +17,15 @@ jobs:
           run: |
               ls
               whoami
-              
-           
+
+        - name: copy file via ssh password
+          uses: appleboy/scp-action@v0.1.7
+          with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USERNAME }}
+              password: ${{ secrets.PASSWORD }}
+              port: ${{ secrets.PORT }}
+              source: "./"
+              target: your_server_target_folder_path
+               
 
